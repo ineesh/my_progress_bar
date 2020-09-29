@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<style>
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+    border-radius: 50px;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #4CAF50;
+    border-radius: 50px;
+    transition-timing-function: ease-in-out;
+    transition-property: width;
+    transition-duration: 2s;
+}
+    
+    
+    #check{
+        width: 30px;
+        height: 30px;
+        transform: translate(615px,34px);
+        
+    }
+    #check1{
+        width: 30px;
+        height: 30px;
+        transform: translate(1215px,34px);
+        
+    }
+     #check2{
+        width: 30px;
+        height: 30px;
+        transform: translate(1780px,34px);
+        
+    }
+
+</style>
+<body>
+
+<h1>JavaScript Progress Bar</h1>
+
+    <input type="checkbox" id = "check">
+    <input type="checkbox" id = "check1">
+    <input type="checkbox" id = "check2">
+<div id="myProgress">
+  <div id="myBar"></div>
+</div>
+
+<br>
+<button onclick="move()">Click Me</button> 
+
+
+<button id = "count">Continue</button>
+
+<button id = "back">Back</button>
+    
+
+
+<script>
+
+function move() {
+
+    var elem = document.getElementById("myBar");
+	document.getElementById("count").onclick = function(){counti()};
+    document.getElementById("back").onclick = function(){backe()};
+    var width = 1;
+    if(document.getElementById("count").click == true)
+    {
+                 var id1 = setInterval(counti , 100);
+    }
+    if(document.getElementById("back").click == true)
+    {
+                 var id2 = setInterval(backe , 100);
+    }
+    
+   
+
+      function backe() {
+                 width = width - 33;
+        if (width > 100) { 
+        document.getElementById("back").disable = true;
+            width = 100;
+      }
+          if(width < 0){
+              width = 1;
+          }
+    else{
+        elem.style.width = width + "%";
+    }
+        if(width < 34)
+            {
+                 document.getElementById("check").checked = false;
+                 document.getElementById("check1").checked = false;
+                 document.getElementById("check2").checked = false;
+             
+            }
+         if (width >= 34)
+             {
+                 document.getElementById("check").checked = true;
+                 document.getElementById("check1").checked = false;
+                 document.getElementById("check2").checked = false;
+             }
+        if (width >= 67)
+            {
+                document.getElementById("check").checked = true;
+                document.getElementById("check1").checked = true;
+                document.getElementById("check2").checked = false;
+            }
+        if (width >= 100)
+            {
+                document.getElementById("check").checked = true;
+                document.getElementById("check1").checked = true;
+                document.getElementById("check2").checked = true;
+            }
+            
+      }
+          
+        
+	
+     function counti() {
+                 width = width + 33;
+        
+        if (width > 100) { 
+        document.getElementById("count").disable = true;
+            width = 100;
+      }
+    else{
+        elem.style.width = width + "%";}
+        setTimeout(v,2000);
+        function v(){
+          if (width >= 34)
+             {
+                 document.getElementById("check").checked = true;
+                 document.getElementById("check1").checked = false;
+                 document.getElementById("check2").checked = false;
+             }
+        if (width >= 67)
+            {
+                document.getElementById("check").checked = true;
+                document.getElementById("check1").checked = true;
+                document.getElementById("check2").checked = false;
+            }
+        if (width == 100)
+            {
+                document.getElementById("check").checked = true;
+                document.getElementById("check1").checked = true;
+                document.getElementById("check2").checked = true;
+            }
+        }
+      }
+    }
+</script>
+
+</body>
+</html>
