@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <style>
@@ -36,28 +37,44 @@
         transform: translate(1780px,34px);
         
     }
-
+    #ch{
+        transform: translate(615px,250px);
+    }
+     #ch1{
+        transform: translate(1255px,217px);
+    }
+     #ch2{
+        transform: translate(1860px,180px);
+    }
 </style>
+    <head>
+    
+    <meta name="viewport" content="width=device-width ,initial-scale=0.1">
+    
+    </head>
 <body>
-
+<p id="ch">Step: 1</p>
+<p id="ch1">Step: 2</p>
+<p id="ch2">Step: 3</p>
 <h1>JavaScript Progress Bar</h1>
 
     <input type="checkbox" id = "check">
     <input type="checkbox" id = "check1">
     <input type="checkbox" id = "check2">
+
 <div id="myProgress">
   <div id="myBar"></div>
 </div>
 
 <br>
-<button onclick="move()">Click Me</button> 
+ 
 
 
-<button id = "count">Continue</button>
+<button id = "count" onclick="move()">Next</button>
 
 <button id = "back">Back</button>
     
-
+<p id ="wr">Step: 0</p>
 
 <script>
 
@@ -92,6 +109,8 @@ function move() {
     }
         if(width < 34)
             {
+                document.getElementById("wr").innerHTML = "Step: 0";
+                 document.getElementById("ch").style.color = "black";
                  document.getElementById("check").checked = false;
                  document.getElementById("check1").checked = false;
                  document.getElementById("check2").checked = false;
@@ -99,18 +118,23 @@ function move() {
             }
          if (width >= 34)
              {
+                 document.getElementById("wr").innerHTML = "Step: 1";
+                 document.getElementById("ch1").style.color = "black";
                  document.getElementById("check").checked = true;
                  document.getElementById("check1").checked = false;
                  document.getElementById("check2").checked = false;
              }
         if (width >= 67)
             {
+                document.getElementById("wr").innerHTML = "Step: 2";
+                document.getElementById("ch2").style.color = "black";
                 document.getElementById("check").checked = true;
                 document.getElementById("check1").checked = true;
                 document.getElementById("check2").checked = false;
             }
         if (width >= 100)
             {
+                document.getElementById("wr").innerHTML = "Step: 3";
                 document.getElementById("check").checked = true;
                 document.getElementById("check1").checked = true;
                 document.getElementById("check2").checked = true;
@@ -133,18 +157,27 @@ function move() {
         function v(){
           if (width >= 34)
              {
+                 document.getElementById("wr").innerHTML = "Step: 1";
+                 document.getElementById("ch").style.color = "blue";
                  document.getElementById("check").checked = true;
                  document.getElementById("check1").checked = false;
                  document.getElementById("check2").checked = false;
              }
         if (width >= 67)
             {
+                document.getElementById("wr").innerHTML = "Step: 2";
+                document.getElementById("ch").style.color = "blue";
+                document.getElementById("ch1").style.color = "blue";
                 document.getElementById("check").checked = true;
                 document.getElementById("check1").checked = true;
                 document.getElementById("check2").checked = false;
             }
         if (width == 100)
             {
+                document.getElementById("wr").innerHTML = "Step: 3";
+                document.getElementById("ch").style.color = "blue";
+                document.getElementById("ch1").style.color = "blue";
+                document.getElementById("ch2").style.color = "blue";
                 document.getElementById("check").checked = true;
                 document.getElementById("check1").checked = true;
                 document.getElementById("check2").checked = true;
